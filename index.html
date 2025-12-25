@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Richmond VA Market Explorer - Real estate market data and insights">
+  <title>Richmond VA Market Explorer</title>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+    
+    .rva-embed-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    
+    .rva-embed-container iframe {
+      width: 100%;
+      height: 900px;
+      border: none;
+      display: block;
+    }
+    
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem 0.5rem;
+      }
+      
+      .rva-embed-container {
+        margin: 1rem;
+        border-radius: 8px;
+      }
+      
+      .rva-embed-container iframe {
+        height: 700px;
+      }
+    }
+    
+    /* Tablet responsive */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .rva-embed-container iframe {
+        height: 800px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="rva-embed-container">
+    <iframe 
+      src="https://bmas.dwellchecker.app/other-markets/va/rva" 
+      frameborder="0"
+      title="Richmond VA Market Explorer"
+      loading="lazy"
+      allowfullscreen
+    ></iframe>
+  </div>
+</body>
+</html>
+
