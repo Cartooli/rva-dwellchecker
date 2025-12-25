@@ -125,7 +125,7 @@
   <div class="rva-embed-container">
     <iframe 
       id="rva-iframe"
-      src="https://rva.dwellchecker.app/?embed=true" 
+      src="https://bmas.dwellchecker.app/other-markets/va/rva?embed=true" 
       frameborder="0"
       title="Richmond VA Market Explorer"
       loading="lazy"
@@ -137,7 +137,7 @@
         <h2>Richmond VA Market Explorer</h2>
         <p>The embedded content cannot be displayed due to security restrictions.</p>
         <p>Please click the button below to view the Market Explorer in a new window:</p>
-        <a href="https://rva.dwellchecker.app/?embed=true" target="_blank" rel="noopener noreferrer" class="fallback-button">
+        <a href="https://bmas.dwellchecker.app/other-markets/va/rva?embed=true" target="_blank" rel="noopener noreferrer" class="fallback-button">
           Open Richmond VA Market Explorer
         </a>
       </div>
@@ -157,36 +157,25 @@
     // Check if iframe loads successfully
     iframe.addEventListener('load', function() {
       iframeLoaded = true;
-      // Try to verify iframe is actually accessible
-      setTimeout(function() {
-        try {
-          // This will throw if blocked by X-Frame-Options
-          const test = iframe.contentWindow.location.href;
-        } catch (e) {
-          // Iframe is blocked - show fallback
-          showFallback();
-        }
-      }, 1000);
+      // Iframe loaded - keep it visible
+      console.log('Iframe loaded successfully');
     });
     
-    // Handle iframe errors
+    // Handle iframe errors (only for actual errors, not CORS)
     function handleIframeError() {
-      showFallback();
-    }
-    
-    // Fallback: If iframe doesn't load within 3 seconds, show fallback
-    setTimeout(function() {
+      // Only show fallback if iframe hasn't loaded
       if (!iframeLoaded) {
         showFallback();
       }
-    }, 3000);
+    }
     
-    // Listen for connection refused errors
-    window.addEventListener('error', function(e) {
-      if (e.message && e.message.includes('refused')) {
+    // Fallback: If iframe doesn't load within 5 seconds, show fallback
+    setTimeout(function() {
+      if (!iframeLoaded) {
+        console.log('Iframe did not load within timeout, showing fallback');
         showFallback();
       }
-    }, true);
+    }, 5000);
   </script>
 </body>
 </html>
