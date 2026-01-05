@@ -19,17 +19,21 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       min-height: 100vh;
-      padding: 2rem 1rem;
+      padding: 3rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     .rva-embed-container {
       width: 100%;
-      max-width: 1200px;
-      margin: 2rem auto;
+      max-width: 1400px;
+      margin: 0 auto;
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
       overflow: hidden;
+      padding: 0;
     }
     
     .rva-embed-container iframe {
@@ -42,12 +46,14 @@
     /* Mobile responsive */
     @media (max-width: 768px) {
       body {
-        padding: 1rem 0.5rem;
+        padding: 1.5rem 1rem;
+        align-items: flex-start;
       }
       
       .rva-embed-container {
-        margin: 1rem;
-        border-radius: 8px;
+        max-width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
       }
       
       .rva-embed-container iframe {
@@ -57,8 +63,23 @@
     
     /* Tablet responsive */
     @media (min-width: 769px) and (max-width: 1024px) {
+      body {
+        padding: 2.5rem 1.25rem;
+      }
+      
+      .rva-embed-container {
+        max-width: 1200px;
+      }
+      
       .rva-embed-container iframe {
         height: 800px;
+      }
+    }
+    
+    /* Large screens */
+    @media (min-width: 1400px) {
+      body {
+        padding: 4rem 2rem;
       }
     }
     
@@ -69,7 +90,7 @@
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
+      padding: 3rem 2rem;
       background: #f8f9fa;
     }
     
@@ -114,7 +135,7 @@
     @media (max-width: 768px) {
       .iframe-fallback {
         height: 700px;
-        padding: 1rem;
+        padding: 2rem 1.5rem;
       }
       
       .fallback-content h2 {
